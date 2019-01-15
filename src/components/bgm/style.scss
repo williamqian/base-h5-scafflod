@@ -1,0 +1,28 @@
+//音乐控制
+.c-bgm-ctr
+{
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    right: 20px;
+
+    width: 60px;
+    height: 60px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    background-image: url(./img/music_pause.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    &.c-bgm-playing
+    {
+        animation-name: circle;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        background-image: url(./img/music.svg);
+    }
+}

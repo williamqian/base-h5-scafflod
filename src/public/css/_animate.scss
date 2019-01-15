@@ -1,0 +1,136 @@
+//动画
+.animated
+{
+    visibility: hidden;
+
+    animation-duration: 1s;
+}
+.flow
+{
+    animation-name: flow;
+    animation-duration: 28s;
+    animation-timing-function: linear;
+}
+.flow-1
+{
+    animation-name: flow1;
+    animation-timing-function: linear;
+}
+.rotate
+{
+    animation-name: rotate;
+}
+.rotateZoomIn
+{
+    animation-name: rotateZoomIn;
+}
+
+.rotate720ZoomIn
+{
+    animation-name: rotate720ZoomIn;
+}
+
+.stretch
+{
+    animation-name: stretch;
+    animation-timing-function: linear;
+}
+@keyframes flow
+{
+    from
+    {
+        transform: translateX(0);
+    }
+
+    to
+    {
+        transform: translateX(50%);
+    }
+}
+@keyframes flow1
+{
+    0%
+    {
+        transform: translateY(0);
+
+        opacity: 0;
+    }
+    25%
+    {
+        transform: translateY(25%);
+
+        opacity: 1;
+    }
+    50%
+    {
+        transform: translateY(50%);
+
+        opacity: 1;
+    }
+    75%
+    {
+        transform: translateY(75%);
+
+        opacity: 1;
+    }
+    100%
+    {
+        transform: translateY(100%);
+
+        opacity: 0;
+    }
+}
+@keyframes rotate
+{
+    from
+    {
+        transform: rotate3d(0, 0, 1, -360deg);
+    }
+
+    to
+    {
+        transform: none;
+    }
+}
+@keyframes rotateZoomIn
+{
+    from
+    {
+        transform: rotate3d(0, 0, 1, -200deg) scale3d(0, 0, 0);
+        transform-origin: center;
+
+        opacity: 0;
+    }
+
+    to
+    {
+        transform: none;
+        transform-origin: center;
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes circle
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+@keyframes stretch
+{
+    from
+    {
+        transform: translateY(-100%);
+    }
+    to
+    {
+        transform: translateY(0%);
+    }
+}

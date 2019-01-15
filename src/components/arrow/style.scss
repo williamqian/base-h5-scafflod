@@ -1,0 +1,24 @@
+//指示下一页的箭头
+.c-arrow
+{
+    position: absolute;
+    z-index: 9;
+    bottom: 60px;
+    left: 50%;
+
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+
+    animation-name: fadeOutDown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+
+    background-image: url(./img/arrow.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+
+    animation-fill-mode: both;
+}

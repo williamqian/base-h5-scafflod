@@ -1,0 +1,9 @@
+<script src="<%= cdn.js.jq %>"></script>
+<% if((data.cdn && data.cdn.js)){ %>
+<% for (var js in data.cdn.js) { %>
+<script src="<%= cdn.js[data.cdn.js[js]] %>"></script>
+<% } %>
+<% } %>
+</body>
+
+</html>
