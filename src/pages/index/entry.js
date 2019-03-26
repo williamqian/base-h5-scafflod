@@ -1,7 +1,7 @@
 require('./css/style.scss');
 //加载组件js,组件css也是在组件的js里加载的
 //const r = require.context('components', true, /.+\/script\.js$/);
-const r = require.context('components', true, /^\.\/(header|footer)\/script\.js$/);
+const r = require.context('components', true, /^\.\/(header|footer|loading)\/script\.js$/);
 r.keys().forEach(r);
 //页面
 
@@ -13,8 +13,10 @@ let mySwiper = null;
 let initSlide = 0;
 //微信jssdk
 let jssdk = require('public/js/jssdk.2.0.js');
+//表单验证
 let validator = require('public/js/validator.js');
-
+//动画
+let animation = require('public/js/animation.js');
 
 let initSwiper = function()
 {
@@ -29,9 +31,18 @@ let initSwiper = function()
         {
             init: function(swiper)
             {
-                //$('.slide-search .wrap').css('height', $('.slide-search').height() + 'px');
-                $('#loader').fadeOut();
+
+                animation.start(this);
             },
+            slideChange: function()
+            {
+
+                animation.start(this);
+            },
+            slideChangeTransitionEnd: function()
+            {
+                animation.hide(this);
+            }
         }
 
 
@@ -86,7 +97,7 @@ let initData = function()
             notie.alert(
             {
                 type: 'error',
-                text: res.msg,
+                text: '初始化失败，服务器发生错误',
                 time: 2,
 
             });
@@ -97,6 +108,10 @@ let initData = function()
 
 let initForm = function()
 {
+    $('input').on('blur', function()
+    {
+        window.scroll(0, 0);
+    });
     $('form').on('submit', function(e)
     {
         e.preventDefault();

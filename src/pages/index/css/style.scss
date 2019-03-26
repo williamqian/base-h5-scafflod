@@ -1,4 +1,5 @@
 @import '../../../public/css/page-public';
+@import '../../../public/css/animate';
 body .mylayer {
     font-size: 2.8rem;
 }
@@ -22,20 +23,6 @@ body {
     width: 640px;
     margin: 0 auto;
     color: #333;
-}
-
-#loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    z-index: 2;
-    background-image: url(../img/loading.svg);
-    background-size: 100px 100px;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 .swiper-container {

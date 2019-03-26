@@ -12,5 +12,6 @@ module.exports = {
 	swiper: 'Swiper',
 	wx: 'window.wx',
 	html2canvas: 'window.html2canvas',
-	notie: 'window.notie'
+	notie: 'window.notie',
+	pinchzoom: 'PinchZoom'
 };

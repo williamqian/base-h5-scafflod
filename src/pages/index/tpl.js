@@ -4,21 +4,21 @@
   data = Object.assign(
   {},
   {
-      data: data
+    data: data
   },
   {
-      cdn
+    cdn
   });
   let renderData = {};
-  const r = require.context('components', true, /^\.\/(header|footer)\/content\.html$/);
+  const r = require.context('components', true, /^\.\/(header|footer|loading)\/content\.html$/);
   //const r = require.context('components', true, /.+\/content\.html$/);
   r.keys().forEach(function(key)
   {
 
 
-      let componentName = key.substring(2, key.lastIndexOf('/'));
+    let componentName = key.substring(2, key.lastIndexOf('/'));
 
-      renderData[componentName] = r(key)(data);
+    renderData[componentName] = r(key)(data);
   });
   renderData = Object.assign(
   {}, data, renderData);

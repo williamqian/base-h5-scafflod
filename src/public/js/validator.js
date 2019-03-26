@@ -1,5 +1,6 @@
 let moduleExports = {
-  validator_types: {
+  validator_types:
+  {
     vRequire: /\S+/,
     vEmail: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
     vNumber: /^\d+$/,
@@ -11,47 +12,57 @@ let moduleExports = {
   }
 };
 
-moduleExports.checkForm = function(formId) {
-  var tBool = true;
-  var tMessage = '';
-  if ($('#' + formId).length > 0) {
-    var tFormElements = $('#' + formId + ' input[vType],#' + formId + ' select[vType],#' + formId + ' textarea[vType]');
-    var tElementType = '';
-    var tName = '';
-    var tValue = '';
-    var tVType = '';
-    var tExpression = '';
-    tFormElements.each(function() {
+moduleExports.checkForm = function(formId)
+{
+  let tBool = true;
+  let tMessage = '';
+  if ($('#' + formId).length > 0)
+  {
+    let tFormElements = $('#' + formId + ' input[vType],#' + formId + ' select[vType],#' + formId + ' textarea[vType]');
+    let tElementType = '';
+    let tName = '';
+    let tValue = '';
+    let tVType = '';
+    let tExpression = '';
+    tFormElements.each(function()
+    {
       tElementType = $(this).attr('type');
       tName = $(this).attr('Name');
       tValue = $(this).val();
       tVType = $(this).attr('vType');
       tExpression = $(this).attr('vExpression');
       tMessage = $(this).attr('vMessage');
-      switch (tElementType) {
+      switch (tElementType)
+      {
         case 'radio':
-          var tChecked = false;
-          $("#" + formId + " input[name='" + tName + "']").each(function() {
-            if ($(this).prop('checked')) {
+          let tChecked = false;
+          $("#" + formId + " input[name='" + tName + "']").each(function()
+          {
+            if ($(this).prop('checked'))
+            {
               tChecked = true;
               return false;
             }
           });
-          if (!tChecked) {
+          if (!tChecked)
+          {
             $(this).focus();
             tBool = false;
           }
           break;
         default:
-          switch (tVType) {
+          switch (tVType)
+          {
             case 'NE':
-              if (tValue == tExpression) {
+              if (tValue == tExpression)
+              {
                 $(this).focus();
                 tBool = false;
               }
               break;
             default:
-              if (!moduleExports.validator_types['v' + tVType].test(tValue)) {
+              if (!moduleExports.validator_types['v' + tVType].test(tValue))
+              {
                 $(this).focus();
                 tBool = false;
               }
@@ -62,7 +73,7 @@ moduleExports.checkForm = function(formId) {
       if (!tBool) return false;
     });
   }
-  var res = {
+  let res = {
     bool: tBool,
     msg: tMessage
   };

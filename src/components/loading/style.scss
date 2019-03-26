@@ -1,0 +1,24 @@
+#c-loading {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #fff;
+  .c-loading_loader {
+
+    img {
+      width: 150px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    p {
+      color: #666;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
