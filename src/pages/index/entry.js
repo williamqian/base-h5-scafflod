@@ -17,7 +17,13 @@ let jssdk = require('public/js/jssdk.2.0.js');
 let validator = require('public/js/validator.js');
 //动画
 let animation = require('public/js/animation.js');
-
+let render = function(data)
+{
+    $.each(data, function(key, val)
+    {
+        $(`.my-${key}`).text(val);
+    });
+}
 let initSwiper = function()
 {
     mySwiper = new swiper('.swiper-container',
@@ -65,19 +71,17 @@ let initData = function()
 
             if (res.state == 1)
             {
-                $('#my-photo').attr('src', res.data.headimg);
+
                 if (res.data.name)
                 {
 
                     initSlide = 1;
 
 
-                    $('#my-order').html(res.data.order);
-                    $('#my-company').html(res.data.company);
-                    $('#my-name').html(res.data.name);
-                    $('#my-table').html(res.data.table);
+
 
                 }
+                render(res.data);
                 initSwiper();
             }
             else
@@ -138,7 +142,7 @@ let initForm = function()
             $.ajax(
             {
                 type: 'post',
-                url: 'api.php?type=action&action=submit',
+                url: 'api.php?type=action&action=signin',
                 data: formObj.serialize(),
                 dataType: 'json',
                 complete: function()
@@ -153,11 +157,7 @@ let initForm = function()
 
                     if (res.state == 1)
                     {
-
-                        $('#my-order').html(res.data.order);
-                        $('#my-company').html(res.data.company);
-                        $('#my-name').html(res.data.name);
-                        $('#my-table').html(res.data.table);
+                        render(res.data);
 
 
                         mySwiper.slideNext(800);
@@ -165,7 +165,7 @@ let initForm = function()
                     }
                     else
                     {
-                        formObj.find('[type="submit"]').removeAttr('disabled');
+                        btn.removeAttr('disabled');
 
                     }
                     if (res.state != 0)
@@ -183,14 +183,15 @@ let initForm = function()
                         let choices = [];
                         $.each(res.data, function(idx, ele)
                         {
+                            let text = ele.name + '  ' + ele.company;
                             choices.push(
                             {
-                                text: ele.name + '  ' + ele.company,
+                                text: text,
                                 handler: () =>
                                 {
                                     console.log('choose ' + ele.id);
 
-                                    formObj.find('input[name="name"]').val(ele.name + '  ' + ele.company);
+                                    formObj.find('input[name="name"]').val(text);
                                     formObj.find('input[name="name"]').attr('readonly', 'readonly');
                                     formObj.find('input[name="id"]').val(ele.id);
                                 }
@@ -251,7 +252,7 @@ let initMock = function()
             }
         );
         mock.mock(
-            /api\.php\?type=action&action=submit/,
+            /api\.php\?type=action&action=signin/,
             {
                 'state|1': [1, -1, 0],
                 'msg|1': function()

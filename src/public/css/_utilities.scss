@@ -9,3 +9,10 @@
 .u-invisible {
 	visibility: hidden;
 }
+
+.u-select-clear {
+	appearance: none;
+	&::-ms-expand {
+		display: none;
+	}
+}

@@ -14,7 +14,7 @@ module.exports = {
         'swiper': 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js',
         'webcam': 'https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.23/webcam.min.js',
         'jq_qrcode': 'https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js',
-        'weixin': 'http://res.wx.qq.com/open/js/jweixin-1.2.0.js',
+        'weixin': 'https://res.wx.qq.com/open/js/jweixin-1.4.0.js',
         'html2canvas': 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js',
         'notie': 'https://cdnjs.cloudflare.com/ajax/libs/notie/4.3.1/notie.min.js',
         'pinch_zoom': 'http://static.bigfoot.xin/js/lib/pinch-zoom.umd.js'

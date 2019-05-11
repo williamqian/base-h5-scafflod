@@ -2,7 +2,8 @@ let moduleExports = {
   validator_types:
   {
     vRequire: /\S+/,
-    vEmail: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+    //vEmail: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+    vEmail: /^\S+@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
     vNumber: /^\d+$/,
     vPositive: /^[1-9][0-9]*$/,
     vEnglish: /^[A-Za-z]+$/,
