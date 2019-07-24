@@ -299,7 +299,10 @@ let initMock = function()
 }
 let init = function()
 {
-
+    $('img').on('touchstart', function(e)
+    {
+        e.preventDefault();
+    });
     jssdk();
     initMock();
     initData();
