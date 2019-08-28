@@ -14,16 +14,8 @@
   "author": "bigfoot.xin",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "bootstrap-sass": "^3.3.7",
     "es6-promise": "^4.1.1",
-    "jquery": "^3.2.1",
-    "jquery-match-height": "^0.7.2",
-    "jquery-zoom": "^1.7.20",
-    "jquery.dotdotdot": "^3.0.2",
-    "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
-    "video.js": "^6.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

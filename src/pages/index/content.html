@@ -4,40 +4,30 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide slide-sign swiper-no-swiping">
             <div class="wrap">
-               
-
-                  <form id="form1" autocomplete="off">
-                       
-                        <div class="form-group">
-                            <input type="text" name="name" vType="Require" vMessage="姓名不能为空" >
-                          <input type="hidden" name="id"  >
-                        </div>
-                        
-                        <button type="submit">提　交</button>
-                        
-                    </form>
-
+                <form id="form1" autocomplete="off">
+                    <div class="form-group">
+                        <input type="text" name="name" vType="Require" vMessage="姓名不能为空">
+                        <input type="hidden" name="id">
+                    </div>
+                    <button type="submit">提　交</button>
+                </form>
             </div>
         </div>
         <div class="swiper-slide slide-success swiper-no-swiping">
             <div class="wrap">
-               
                 <div class="info">
-                   
-                        <img class="my-headimg" src="">
-                       
-                 
-                        <p class="my-name"></p>
-                        <div class="meta">
-                            <p class="table">餐桌号：<span class="my-table"></span></p>
-                            <p class="order">礼品号：<span class="my-order"></span></p>
-                            <p class="company">公司：<span class="my-company"></span></p>
-                        </div>
-                        <p class="success">签到成功</p>
-                </div>
+                    <img class="my-headimg" src="">
+                    <p class="my-name"></p>
+                    <div class="meta">
+                        <p class="table">餐桌号：<span class="my-table"></span></p>
+                        <p class="order">礼品号：<span class="my-order"></span></p>
+                        <p class="company">公司：<span class="my-company"></span></p>
                     </div>
+                    <p class="success">签到成功</p>
                 </div>
             </div>
         </div>
-        <img id="wx_share_img" class="u-hidden" src="<%= require('./img/wx_share.jpg') %>">
-        <%= footer %>
+    </div>
+</div>
+<img id="wx_share_img" class="u-hidden" src="<%= require('./img/wx_share.jpg') %>">
+<%= footer %>
