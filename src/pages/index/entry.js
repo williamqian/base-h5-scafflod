@@ -47,7 +47,7 @@ let init = function()
             initSlide = 1;
         }
         mySwiper = initSwiper(initSlide);
-        initForm(function()
+        initForm(function(argRes)
         {
             mySwiper.slideNext(800);
         });

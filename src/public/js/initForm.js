@@ -48,7 +48,7 @@ module.exports = function(ajaxCallback)
                                 });
                                 if (typeof(ajaxCallback) == 'function')
                                 {
-                                    ajaxCallback();
+                                    ajaxCallback(res);
                                 }
                             }
                             else

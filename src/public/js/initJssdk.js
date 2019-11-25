@@ -48,7 +48,7 @@ let wxConfig = function(jssdkInfo, shareInfo)
     wx.error(function(res) {});
 };
 
-module.exports = function(shareInfo, argApp)
+module.exports = function(argApp, shareInfo)
 {
     let app = argApp;
     if (typeof(app) == 'undefined')
