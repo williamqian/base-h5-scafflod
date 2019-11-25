@@ -25,10 +25,24 @@ else
   let render = function()
   {
     let loadedAmount = successAmount + failAmount;
-    percentObj.html(Math.floor(loadedAmount / totalAmount * 100));
+
     if (loadedAmount == totalAmount)
     {
-      loadingObj.fadeOut();
+      console.log('img load completed');
+      loadingObj.attr('data-img-complete', 1);
+      if (loadingObj.attr('data-ajax-complete'))
+      {
+        percentObj.html(100);
+        loadingObj.fadeOut('fast');
+      }
+      else
+      {
+        percentObj.html(99);
+      }
+    }
+    else
+    {
+      percentObj.html(Math.floor(loadedAmount / totalAmount * 100));
     }
   }
   for (let i = 0; i < totalAmount; i++)

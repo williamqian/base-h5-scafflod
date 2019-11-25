@@ -48,8 +48,13 @@ let wxConfig = function(jssdkInfo, shareInfo)
     wx.error(function(res) {});
 };
 
-module.exports = function(shareInfo)
+module.exports = function(shareInfo, argApp)
 {
+    let app = argApp;
+    if (typeof(app) == 'undefined')
+    {
+        app = 'xtk';
+    }
     let defaultShareInfo = {
         title: $(document).attr('title'),
         des: $(document).attr('title'),
@@ -59,7 +64,16 @@ module.exports = function(shareInfo)
     shareInfo = $.extend(
     {}, defaultShareInfo, shareInfo);
     let jssdkUrl = location.href;
-    $.getJSON('//api.signin.cityche.cn/jssdk/v1/?jssdk_url=' + encodeURIComponent(jssdkUrl) + '&callback=?', function(res)
+    let url = '';
+    if (app == 'xtk')
+    {
+        url = '//api.signin.cityche.cn/jssdk/v1/';
+    }
+    else if (app == 'bf')
+    {
+        url = '//api.bigfoot.xin/jssdk/v1/';
+    }
+    $.getJSON(url + '?jssdk_url=' + encodeURIComponent(jssdkUrl) + '&callback=?', function(res)
     {
         wxConfig(res, shareInfo);
     });

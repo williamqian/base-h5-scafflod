@@ -13,5 +13,6 @@ module.exports = {
 	wx: 'window.wx',
 	html2canvas: 'window.html2canvas',
 	notie: 'window.notie',
-	pinchzoom: 'PinchZoom'
+	pinchzoom: 'PinchZoom',
+	weui: 'window.weui'
 };

@@ -17,7 +17,8 @@ module.exports = {
         'weixin': 'https://res.wx.qq.com/open/js/jweixin-1.4.0.js',
         'html2canvas': 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js',
         'notie': 'https://cdnjs.cloudflare.com/ajax/libs/notie/4.3.1/notie.min.js',
-        'pinch_zoom': 'http://static.bigfoot.xin/js/lib/pinch-zoom.umd.js'
+        'pinch_zoom': 'http://static.bigfoot.xin/js/lib/pinch-zoom.umd.js',
+        'weui': 'https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js'
     },
     css:
     {
@@ -26,6 +27,7 @@ module.exports = {
         'slick': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css',
         'normalize': 'https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css',
         'swiper': 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css',
-        'notie': 'https://cdnjs.cloudflare.com/ajax/libs/notie/4.3.1/notie.min.css'
+        'notie': 'https://cdnjs.cloudflare.com/ajax/libs/notie/4.3.1/notie.min.css',
+        'weui': 'https://res.wx.qq.com/open/libs/weui/2.1.3/weui.min.css'
     }
 };
