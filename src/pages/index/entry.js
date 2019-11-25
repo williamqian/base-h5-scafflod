@@ -20,7 +20,6 @@ let render = function(data)
         if (obj.length)
         {
             let tagName = obj[0].tagName.toLowerCase();
-            console.log(tagName);
             if (tagName == 'img')
             {
                 obj.attr('src', `${val}`);
