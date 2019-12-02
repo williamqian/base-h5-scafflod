@@ -23,7 +23,7 @@ module.exports = {
     css:
     {
         'fa': 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
-        'animate': 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css',
+        'animate': 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css',
         'slick': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css',
         'normalize': 'https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css',
         'swiper': 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css',

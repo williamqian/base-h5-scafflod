@@ -1,13 +1,43 @@
 module.exports = {
-    getQueryString: function(str, name)
+    animateCSS: function(obj, animationName, callback)
     {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        if (str.indexOf('?') != -1)
+        function handleAnimationEnd()
         {
-            var r = (str.split('?'))[1].match(reg);
-            if (r != null) return decodeURIComponent(r[2]);
-            return null;
+            obj.removeClass(`animated ${animationName}`);
+            obj.off('animationend webkitAnimationEnd', handleAnimationEnd)
+            if (typeof callback === 'function') callback()
         }
-        else return null;
+        obj.on('animationend webkitAnimationEnd', handleAnimationEnd);
+        obj.addClass(`animated ${animationName}`).css('visibility', 'visible');
+    },
+
+    /**
+     * 
+     * @desc   url参数转对象
+     * @param  {String} url  default: window.location.href
+     * @return {Object} 
+     */
+    parseQueryString: function(url)
+    {
+        url = !url ? window.location.href : url;
+        if (url.indexOf('?') === -1)
+        {
+            return {};
+        }
+        var search = url[0] === '?' ? url.substr(1) : url.substring(url.lastIndexOf('?') + 1);
+        if (search === '')
+        {
+            return {};
+        }
+        search = search.split('&');
+        var query = {};
+        for (var i = 0; i < search.length; i++)
+        {
+            var pair = search[i].split('=');
+            query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        }
+        return query;
     }
+
+
 }

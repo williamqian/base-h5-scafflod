@@ -2,7 +2,7 @@ module.exports = {
     title: '',
     cdn:
     {
-        css: ['swiper','animate','weui'],
-        js: ['swiper','weixin', 'weui']
+        css: ['swiper', 'animate', 'weui'],
+        js: ['swiper', 'weixin', 'weui', 'pinch_zoom']
     }
 };

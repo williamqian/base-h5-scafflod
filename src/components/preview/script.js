@@ -1,6 +1,7 @@
 require('./style.scss');
 let $ = require('jquery');
 let PinchZoom = require('pinchzoom');
+let tools = require('public/js/tools.js');
 module.exports = function(content)
 {
 	let tpl = `<div id="c-preview" class="u-invisible">
@@ -10,15 +11,16 @@ module.exports = function(content)
 	$('body').append(tpl);
 	let obj = $('#c-preview');
 	new PinchZoom.default(obj.find('.c-preview-box').get(0));
-	obj.css('display', 'none').removeClass('u-invisible');
-	obj.find('.c-preview-close').on('click', function()
-	{
 
-		obj.fadeOut('normal', function()
+	obj.find('.c-preview-content').html(content);
+	tools.animateCSS(obj, 'fadeInRight', function()
+	{
+		obj.find('.c-preview-close').on('click', function()
 		{
-			obj.remove();
+			tools.animateCSS(obj, 'fadeOutRight', function()
+			{
+				obj.remove();
+			});
 		});
 	});
-	obj.find('.c-preview-content').html(content);
-	obj.fadeIn();
 }

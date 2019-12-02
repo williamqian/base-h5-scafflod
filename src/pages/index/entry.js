@@ -38,6 +38,18 @@ let init = function()
 {
     initJssdk();
     initMock();
+
+    let preview = require('components/preview/script.js');
+    $('.preview').on('click', function()
+    {
+        let img = new Image();
+        img.onload = function()
+        {
+            preview(img);
+        }
+        img.src = $(this).attr('data-src');
+    });
+
     initData(function(res)
     {
         let initSlide = 0;
@@ -51,5 +63,7 @@ let init = function()
             mySwiper.slideNext(800);
         });
     });
+
+
 };
 init();
