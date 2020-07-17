@@ -6,14 +6,15 @@ r.keys().forEach(r);
 //页面
 
 const $ = require('jquery');
-
+const weui = require('weui');
 let initJssdk = require('public/js/initJssdk');
 let initMock = require('public/js/initMock');
 let initData = require('public/js/initData');
 let initSwiper = require('public/js/initSwiper');
 let initForm = require('public/js/initForm');
-let render = function(data)
+let render = function(res)
 {
+    let data = res.data;
     $.each(data, function(key, val)
     {
         let obj = $(`.my-${key}`);
@@ -39,19 +40,9 @@ let init = function()
     initJssdk();
     initMock();
 
-    let preview = require('components/preview/script.js');
-    $('.preview').on('click', function()
-    {
-        let img = new Image();
-        img.onload = function()
-        {
-            preview(img);
-        }
-        img.src = $(this).attr('data-src');
-    });
-
     initData(function(res)
     {
+        render(res);
         let initSlide = 0;
         if (res.data.name)
         {
@@ -60,7 +51,20 @@ let init = function()
         mySwiper = initSwiper(initSlide);
         initForm(function(argRes)
         {
-            mySwiper.slideNext(800);
+            if (argRes.state == 1)
+            {
+                render(argRes);
+                weui.toast(argRes.msg,
+                {
+                    duration: 1000
+                });
+                mySwiper.slideNext(800);
+            }
+            else
+            {
+                weui.alert(argRes.msg);
+            }
+
         });
     });
 

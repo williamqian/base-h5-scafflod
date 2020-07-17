@@ -21,6 +21,7 @@ module.exports = function(ajaxCallback)
             form = $(this).parents('.form,form');
             formId = form.attr('id');
         }
+        let action = form.attr('data-action') || 'submit';
         weui.form.validate('#' + formId, function(error)
         {
             if (!error)
@@ -31,7 +32,7 @@ module.exports = function(ajaxCallback)
                     $.ajax(
                     {
                         type: 'post',
-                        url: 'api.php?type=action&action=signin',
+                        url: `api.php?type=action&action=${action}`,
                         data: form.serialize(),
                         dataType: 'json',
                         complete: function()
@@ -40,22 +41,10 @@ module.exports = function(ajaxCallback)
                         },
                         success: function(res)
                         {
-                            if (res.state == 1)
+                            if (typeof(ajaxCallback) == 'function')
                             {
-                                weui.toast(res.msg,
-                                {
-                                    duration: 1000
-                                });
-                                if (typeof(ajaxCallback) == 'function')
-                                {
-                                    ajaxCallback(res);
-                                }
+                                ajaxCallback(res);
                             }
-                            else
-                            {
-                                weui.topTips(res.msg);
-                            }
-
                         },
                         error: function()
                         {

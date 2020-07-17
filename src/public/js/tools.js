@@ -1,14 +1,19 @@
 module.exports = {
     animateCSS: function(obj, animationName, callback)
     {
-        function handleAnimationEnd()
+        if (!obj.hasClass('animated'))
         {
-            obj.removeClass(`animated ${animationName}`);
-            obj.off('animationend webkitAnimationEnd', handleAnimationEnd)
-            if (typeof callback === 'function') callback()
+            function handleAnimationEnd()
+            {
+                obj.removeClass(`animated ${animationName}`);
+                obj.off('animationend webkitAnimationEnd', handleAnimationEnd)
+                console.log(`${animationName} end`);
+                if (typeof callback === 'function') callback()
+            }
+            obj.on('animationend webkitAnimationEnd', handleAnimationEnd);
+            obj.addClass(`animated ${animationName}`).css('visibility', 'visible');
         }
-        obj.on('animationend webkitAnimationEnd', handleAnimationEnd);
-        obj.addClass(`animated ${animationName}`).css('visibility', 'visible');
+
     },
 
     /**

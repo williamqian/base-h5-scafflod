@@ -1,4 +1,6 @@
 const $ = require('jquery');
+let mock = require('mockjs');
+let random = mock.Random;
 module.exports = function(argOptions)
 {
     let options = argOptions;
@@ -17,7 +19,7 @@ module.exports = function(argOptions)
             'data':
             {
                 'name': '',
-                'headimg': '@dataImage(400x400)'
+                'headimg': random.dataImage("400x400")
             },
         },
         'signin':
@@ -32,7 +34,10 @@ module.exports = function(argOptions)
                 switch (this.state)
                 {
                     case 1:
-                        return {};
+                        return {
+                            'name': '刘德华',
+                            'headimg': random.dataImage("400x400")
+                        };
                         break;
                     case -1:
                         return {};
@@ -48,7 +53,7 @@ module.exports = function(argOptions)
 
     if (isDebug)
     {
-        let mock = require('mockjs');
+
         mock.setup(
         {
             timeout: '20-80'

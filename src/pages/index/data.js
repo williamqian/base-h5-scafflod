@@ -3,6 +3,6 @@ module.exports = {
     cdn:
     {
         css: ['swiper', 'animate', 'weui'],
-        js: ['swiper', 'weixin', 'weui', 'pinch_zoom']
+        js: ['swiper', 'weixin', 'weui']
     }
 };

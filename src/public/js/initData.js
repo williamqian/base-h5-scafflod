@@ -32,7 +32,7 @@ module.exports = function(callback)
             }
             else
             {
-                weui.topTips(res.msg);
+                weui.alert(res.msg);
             }
         },
         error: function()
